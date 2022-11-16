@@ -10,6 +10,8 @@ function init() {
   var camera = initCamera(new THREE.Vector3(0, 50, 60));
   var trackballControls = initTrackballControls(camera, renderer);
   var clock = new THREE.Clock();
+
+  // add scene
   var scene = new Physijs.Scene;
   initDefaultLighting(scene);
   scene.add(new THREE.AmbientLight(0x0393939));
@@ -32,6 +34,7 @@ function init() {
   var points = getPoints();
   var stones = [];
 
+  // add object for physijs
   points.forEach(function (point, index) {
     var stoneGeom = new THREE.BoxGeometry(0.6, 6, 2);
     var stone = new Physijs.BoxMesh(stoneGeom, Physijs.createMaterial(new THREE.MeshStandardMaterial({
